@@ -118,7 +118,7 @@ youren/
 ├── agent/                    # Windows 躯壳脚本
 │   ├── agent.py              # 主代理（轮询 inbox/outbox）
 │   ├── tools.example.json    # 工具路径配置示例
-│   └── protocol.md           # 通信协议文档
+│   └── bridge-protocol.md    # 桥接协议规范
 ├── templates/                # Godot 游戏模板
 │   ├── space-shooter/        # 🚀 空间射击 demo
 │   │   ├── scripts/          # GDScript 源代码
