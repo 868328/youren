@@ -1,5 +1,5 @@
 extends Node
-## 游戏主场景
+## Game main scene
 
 func _ready() -> void:
 	GameManager.start_game()

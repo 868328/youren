@@ -1,14 +1,14 @@
 # 🚀 打飞机 — Space Shooter
 
-> Godot 4.6 | 游刃 🎮 生成 | 经典竖版射击游戏
+> Godot 4.6 | 游刃 🎮 Generated | 经典竖版射击游戏
 
-## 📋 项目概览
+## 📋 Overview
 
 基于 Godot 4.6 引擎的经典竖版打飞机游戏。玩家控制飞船，在星空中消灭不断来袭的敌人，获取高分。
 
 **项目状态:** 阶段二 — 工程化已完成（单元测试、构建脚本、版本管理）
 
-## 🎮 操作
+## 🎮 Controls
 
 | 按键 | 功能 |
 |------|------|
@@ -17,15 +17,15 @@
 | 空格 | 射击 |
 | Shift | 暂停 |
 
-## 🎯 玩法
+## 🎯 Gameplay
 
 - **消灭敌人**获得分数
 - **3 条命**，撞敌人或被打中丢一条
-- **波次系统**：每波敌人越来越强（更多、更快）
+- **波次系统**：Progressive wave difficulty
 - **三种敌人**：普通（白色）、快速（橙色）、坦克（红色，3HP）
 - **最高分**自动保存
 
-## 🏗 项目架构
+## 🏗 Project Structure
 
 ```
 space-shooter/
@@ -43,7 +43,7 @@ space-shooter/
 │   ├── enemy.gd           # 敌人逻辑
 │   ├── bullet.gd          # 子弹行为
 │   ├── enemy_spawner.gd   # 波次生成器
-│   ├── explosion.gd       # 爆炸粒子
+│   ├── explosion.gd       # Explosion
 │   ├── star_background.gd # 星空背景
 │   └── ui/
 │       ├── hud.gd         # HUD 逻辑
@@ -68,7 +68,7 @@ space-shooter/
 └── README.md              # 本文件
 ```
 
-## 🔧 构建
+## 🔧 Build
 
 ### 方式一：Windows 端直接构建
 
@@ -97,7 +97,7 @@ godot --headless --path . --export-release "Windows Desktop"
 
 构建产物输出到 `export/` 目录。
 
-## 🧪 测试
+## 🧪 Tests
 
 ```bash
 # 运行所有单元测试（headless 模式）
@@ -119,7 +119,7 @@ godot --headless --path . --script tests/run_tests.gd
 3. 实现 `run_tests()` 方法
 4. 使用 `assert()` 断言
 
-## 📦 导出配置
+## 📦 Export Config
 
 - **平台:** Windows Desktop
 - **应用名:** 打飞机
@@ -127,7 +127,7 @@ godot --headless --path . --script tests/run_tests.gd
 - **公司:** GameWeaver
 - **渲染:** 480×720 V-Sync 开启
 
-## 🛠 开发环境
+## 🛠 Dev Environment
 
 | 工具 | 版本 | 用途 |
 |------|------|------|
@@ -136,12 +136,12 @@ godot --headless --path . --script tests/run_tests.gd
 | Python | 3.x | 桥接脚本 |
 | Git | — | 版本管理 |
 
-## 📝 许可
+## 📝 License
 
 所有精灵资源来自 [Kenney.nl](https://kenney.nl) (CC0 许可)。  
 游戏代码采用 MIT 许可。
 
-## 🦐 关于
+## 🦐 About
 
 由 **游刃** 游戏开发框架自动生成并工程化。  
 架构设计 / 代码生成 / 工程化：小虾 🦐

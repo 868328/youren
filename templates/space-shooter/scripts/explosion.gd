@@ -1,5 +1,5 @@
 extends Node2D
-## 爆炸特效 — 精灵序列帧动画
+## Explosion — sprite animation frames
 
 @export var frame_duration: float = 0.06
 

@@ -1,12 +1,12 @@
 extends CanvasLayer
-## 主菜单
+## Main menu
 
 @onready var start_button: Button = $StartButton
 @onready var quit_button: Button = $QuitButton
 @onready var high_score_label: Label = $HighScoreLabel
 
 func _ready() -> void:
-	high_score_label.text = "最高分: %d" % GameManager.high_score
+	high_score_label.text = "Best: %d" % GameManager.high_score
 	start_button.grab_focus()
 
 func _on_start_button_pressed() -> void:

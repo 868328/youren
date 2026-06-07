@@ -1,4 +1,4 @@
-# 🔌 桥接协议升级方案
+# 🔌 Bridge Protocol Upgrade Plan
 
 > 文档版本: 1.0 | 2026-06-07
 > 上下文: 游刃游戏开发自动化 — WSL ↔ Windows 通信桥梁

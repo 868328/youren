@@ -1,5 +1,5 @@
 extends "res://scripts/game_manager.gd"
-## GameManager 单元测试
+## GameManager unit tests
 ## 分数管理 · 生命管理 · 最高分 · 状态变更
 
 var MgrScript = preload("res://scripts/game_manager.gd")
@@ -16,40 +16,40 @@ func _reset(mgr) -> void:
 
 func test_score_starts_at_zero() -> void:
 	var mgr = MgrScript.new()
-	assert(mgr.score == 0, "初始分数应为 0")
+	assert(mgr.score == 0, "initial score should be 0")
 	print("✅ test_score_starts_at_zero 通过")
 
 func test_add_score_increments() -> void:
 	var mgr = MgrScript.new()
 	mgr.add_score(10)
-	assert(mgr.score == 10, "add_score(10) 后分数应为 10")
+	assert(mgr.score == 10, "add_score(10) should give 10")
 	mgr.add_score(25)
-	assert(mgr.score == 35, "add_score(25) 后分数应为 35")
+	assert(mgr.score == 35, "add_score(25) should give 35")
 	mgr.add_score(0)
-	assert(mgr.score == 35, "add_score(0) 不应改变分数")
+	assert(mgr.score == 35, "add_score(0) should not change score")
 	print("✅ test_add_score_increments 通过")
 
 func test_add_score_zero_does_nothing() -> void:
 	var mgr = MgrScript.new()
 	mgr.add_score(0)
-	assert(mgr.score == 0, "加 0 分不改值")
+	assert(mgr.score == 0, "adding 0 should not change score")
 	mgr.add_score(-5)
-	assert(mgr.score == -5, "加负数应该管用（调用方负责）")
+	assert(mgr.score == -5, "negative score works (caller validates)")
 	print("✅ test_add_score_zero_does_nothing 通过")
 
 func test_lives_start_at_three() -> void:
 	var mgr = MgrScript.new()
-	assert(mgr.lives == 3, "初始生命应为 3")
+	assert(mgr.lives == 3, "initial lives should be 3")
 	print("✅ test_lives_start_at_three 通过")
 
 func test_lose_life_decrements() -> void:
 	var mgr = MgrScript.new()
 	mgr.lose_life()
-	assert(mgr.lives == 2, "lose_life 后生命应为 2")
+	assert(mgr.lives == 2, "lose_life should give 2 lives")
 	mgr.lose_life()
 	mgr.lose_life()
-	assert(mgr.lives == 0, "三次 lose_life 后生命应为 0")
-	assert(mgr.is_playing == false, "生命为 0 时 is_playing 应为 false")
+	assert(mgr.lives == 0, "3x lose_life should give 0 lives")
+	assert(mgr.is_playing == false, "is_playing should be false at 0 lives")
 	print("✅ test_lose_life_decrements 通过")
 
 func test_game_over_triggers_on_zero_lives() -> void:
@@ -57,17 +57,17 @@ func test_game_over_triggers_on_zero_lives() -> void:
 	mgr.lose_life()
 	mgr.lose_life()
 	mgr.lose_life()
-	assert(mgr.is_playing == false, "0 命后游戏结束")
-	assert(mgr.lives == 0, "生命值应为 0")
+	assert(mgr.is_playing == false, "game over at 0 lives")
+	assert(mgr.lives == 0, "lives should be 0")
 	print("✅ test_game_over_triggers_on_zero_lives 通过")
 
 func test_start_game_resets_state() -> void:
 	var mgr = MgrScript.new()
 	_reset(mgr)
 	mgr.start_game()
-	assert(mgr.score == 0, "start_game 后分数为 0")
-	assert(mgr.lives == 3, "start_game 后生命为 3")
-	assert(mgr.is_playing == true, "start_game 后 is_playing 为 true")
+	assert(mgr.score == 0, "start_game resets score to 0")
+	assert(mgr.lives == 3, "start_game resets lives to 3")
+	assert(mgr.is_playing == true, "start_game sets is_playing to true")
 	print("✅ test_start_game_resets_state 通过")
 
 func test_high_score_tracking() -> void:
@@ -87,22 +87,22 @@ func test_add_score_changes_state() -> void:
 	# 验证 add_score 的效果——这是 score_changed 信号的触发条件
 	var mgr = MgrScript.new()
 	mgr.add_score(42)
-	assert(mgr.score == 42, "add_score 应更新分数为 42")
+	assert(mgr.score == 42, "add_score should update score to 42")
 	print("✅ test_add_score_changes_state 通过（状态正确 = 信号逻辑正确）")
 
 func test_lose_life_changes_state() -> void:
 	var mgr = MgrScript.new()
 	mgr.lose_life()
-	assert(mgr.lives == 2, "lose_life 应更新生命为 2")
+	assert(mgr.lives == 2, "lose_life should update lives to 2")
 	print("✅ test_lose_life_changes_state 通过")
 
 func test_start_game_changes_state() -> void:
 	var mgr = MgrScript.new()
 	_reset(mgr)
 	mgr.start_game()
-	assert(mgr.is_playing == true, "start_game 应设置 is_playing 为 true")
-	assert(mgr.score == 0, "start_game 应重置分数")
-	assert(mgr.lives == 3, "start_game 应重置生命")
+	assert(mgr.is_playing == true, "start_game should set is_playing")
+	assert(mgr.score == 0, "start_game should reset score")
+	assert(mgr.lives == 3, "start_game should reset lives")
 	print("✅ test_start_game_changes_state 通过")
 
 func run_tests() -> void:
@@ -117,4 +117,4 @@ func run_tests() -> void:
 	test_add_score_changes_state()
 	test_lose_life_changes_state()
 	test_start_game_changes_state()
-	print("\n🎉 GameManager 测试全部通过 (%d 项)" % 11)
+	print("\n🎉 GameManager tests passed (%d 项)" % 11)

@@ -1,5 +1,5 @@
 extends Node2D
-## 星空滚动背景 — 带彩色星星和星云效果
+## Starfield background — parallax scrolling with nebula
 
 @export var star_count: int = 120
 @export var min_speed: float = 20.0

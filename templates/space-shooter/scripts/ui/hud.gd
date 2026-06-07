@@ -1,5 +1,5 @@
 extends CanvasLayer
-## 游戏内 HUD
+## In-game HUD — score, lives, game over
 
 @onready var score_label: Label = $ScoreLabel
 @onready var lives_label: Label = $LivesLabel
@@ -16,18 +16,18 @@ func _ready() -> void:
 	game_over_panel.hide()
 
 func _on_score_changed(score: int) -> void:
-	score_label.text = "得分: %d" % score
+	score_label.text = "Score: %d" % score
 
 func _on_lives_changed(lives: int) -> void:
 	var hearts := ""
 	for i in max(lives, 0):
 		hearts += "❤️"
-	lives_label.text = "生命: " + hearts
+	lives_label.text = "Lives: " + hearts
 
 func _on_game_over(final_score: int) -> void:
 	game_over_panel.show()
-	final_score_label.text = "得分: %d" % final_score
-	high_score_label.text = "最高分: %d" % GameManager.high_score
+	final_score_label.text = "Score: %d" % final_score
+	high_score_label.text = "Best: %d" % GameManager.high_score
 	restart_button.grab_focus()
 
 func _on_restart_button_pressed() -> void:

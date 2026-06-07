@@ -1,5 +1,5 @@
 extends Area2D
-## 敌人
+## Enemy
 
 enum EnemyType { BASIC, FAST, TANK }
 

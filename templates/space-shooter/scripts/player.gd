@@ -1,5 +1,5 @@
 extends Area2D
-## 玩家飞船
+## Player ship
 
 @export var speed: float = 400.0
 @export var fire_rate: float = 0.2

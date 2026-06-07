@@ -1,5 +1,5 @@
 extends Node
-## 全局游戏状态 — AutoLoad 单例
+## Global game state — AutoLoad singleton
 
 signal game_started()
 signal score_changed(score: int)

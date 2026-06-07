@@ -1,5 +1,5 @@
 extends Node
-## 敌人生成器 — 按波次生成
+## Enemy spawner — wave-based
 
 @export var spawn_interval: float = 1.5
 @export var spawn_margin: float = 30.0

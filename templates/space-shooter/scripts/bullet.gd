@@ -1,5 +1,5 @@
 extends Area2D
-## 玩家子弹
+## Player bullet
 
 @export var speed: float = 600.0
 @export var damage: int = 1

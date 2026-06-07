@@ -1,6 +1,6 @@
 extends "res://scripts/enemy.gd"
-## Enemy 单元测试
-## 类型初始化 · 伤害系统 · 得分 · 行为验证
+## Enemy unit tests
+## Type init · Damage system · Scoring · Speed
 
 var EnemyScript = preload("res://scripts/enemy.gd")
 
@@ -26,25 +26,25 @@ func _test_hp_after_damage(e, expected_hp: int, label: String) -> void:
 func test_basic_initialization() -> void:
 	var e = EnemyScript.new()
 	_init_enemy(e, 0)
-	assert(e.speed == 150.0, "BASIC 速度应为 150")
-	assert(e.hp == 1, "BASIC 血量应为 1")
-	assert(e.score_value == 100, "BASIC 得分应为 100")
+	assert(e.speed == 150.0, "BASIC speed should be 150")
+	assert(e.hp == 1, "BASIC HP should be 1")
+	assert(e.score_value == 100, "BASIC score should be 100")
 	print("✅ test_basic_initialization 通过")
 
 func test_fast_initialization() -> void:
 	var e = EnemyScript.new()
 	_init_enemy(e, 1)
-	assert(e.speed == 280.0, "FAST 速度应为 280")
-	assert(e.hp == 1, "FAST 血量应为 1")
-	assert(e.score_value == 150, "FAST 得分应为 150")
+	assert(e.speed == 280.0, "FAST speed should be 280")
+	assert(e.hp == 1, "FAST HP should be 1")
+	assert(e.score_value == 150, "FAST score should be 150")
 	print("✅ test_fast_initialization 通过")
 
 func test_tank_initialization() -> void:
 	var e = EnemyScript.new()
 	_init_enemy(e, 2)
-	assert(e.speed == 80.0, "TANK 速度应为 80")
-	assert(e.hp == 3, "TANK 血量应为 3")
-	assert(e.score_value == 300, "TANK 得分应为 300")
+	assert(e.speed == 80.0, "TANK speed should be 80")
+	assert(e.hp == 3, "TANK HP should be 3")
+	assert(e.score_value == 300, "TANK score should be 300")
 	print("✅ test_tank_initialization 通过")
 
 func test_take_damage_core_logic() -> void:
@@ -54,50 +54,50 @@ func test_take_damage_core_logic() -> void:
 	e.hp -= 1
 	assert(e.hp == 2, "坦克 3HP → 减 1 → 2")
 	e.hp -= 1
-	assert(e.hp == 1, "再减 1 → 1")
+	assert(e.hp == 1, "2HP -> 1 -> 1HP")
 	e.hp -= 1
-	assert(e.hp == 0, "再减 1 → 0 (死亡)")
+	assert(e.hp == 0, "1HP -> 1 -> 0HP (dead)")
 	print("✅ test_take_damage_core_logic 通过")
 
 func test_tank_survives_first_hit() -> void:
 	var e = EnemyScript.new()
 	e.hp = 3
 	e.hp -= 1
-	assert(e.hp > 0, "坦克第一次受伤后应存活 (hp > 0)")
+	assert(e.hp > 0, "TANK should survive first hit (HP > 0)")
 	print("✅ test_tank_survives_first_hit 通过")
 
 func test_basic_dies_in_one_hit() -> void:
 	var e = EnemyScript.new()
 	e.hp = 1
 	e.hp -= 1
-	assert(e.hp <= 0, "BASIC 一次受伤后 hp 应 ≤ 0")
+	assert(e.hp <= 0, "BASIC should die in 1 hit (HP <= 0)")
 	print("✅ test_basic_dies_in_one_hit 通过")
 
 func test_fast_dies_in_one_hit() -> void:
 	var e = EnemyScript.new()
 	e.hp = 1
 	e.hp -= 1
-	assert(e.hp <= 0, "FAST 一次受伤后 hp 应 ≤ 0")
+	assert(e.hp <= 0, "FAST should die in 1 hit (HP <= 0)")
 	print("✅ test_fast_dies_in_one_hit 通过")
 
 func test_score_value_matches_type() -> void:
 	var e = EnemyScript.new()
 	_init_enemy(e, 0)
-	assert(e.score_value == 100, "BASIC 得分 100")
+	assert(e.score_value == 100, "BASIC score 100")
 	e = EnemyScript.new()
 	_init_enemy(e, 1)
-	assert(e.score_value == 150, "FAST 得分 150")
+	assert(e.score_value == 150, "FAST score 150")
 	e = EnemyScript.new()
 	_init_enemy(e, 2)
-	assert(e.score_value == 300, "TANK 得分 300")
+	assert(e.score_value == 300, "TANK score 300")
 	print("✅ test_score_value_matches_type 通过")
 
 func test_enemy_movement_speed() -> void:
 	var e = EnemyScript.new()
 	_init_enemy(e, 1)
-	assert(e.speed == 280.0, "FAST 速度 280")
+	assert(e.speed == 280.0, "FAST speed 280")
 	var pos_y_after = e.speed * 0.016
-	assert(abs(pos_y_after - 4.48) < 0.001, "1 帧(60fps)后 y 应移动约 4.48 单位")
+	assert(abs(pos_y_after - 4.48) < 0.001, "1 frame at 60fps should move ~4.48 units")
 	print("✅ test_enemy_movement_speed 通过")
 
 func run_tests() -> void:
@@ -110,4 +110,4 @@ func run_tests() -> void:
 	test_fast_dies_in_one_hit()
 	test_score_value_matches_type()
 	test_enemy_movement_speed()
-	print("\n🎉 Enemy 测试全部通过 (%d 项)" % 9)
+	print("\n🎉 Enemy tests passed (%d 项)" % 9)

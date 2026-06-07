@@ -1,6 +1,6 @@
 extends "res://scripts/enemy_spawner.gd"
-## EnemySpawner 单元测试
-## 波次逻辑 · 参数变化 · 敌人类型分布
+## EnemySpawner unit tests
+## Wave logic · Parameter scaling · Type distribution
 
 var SpawnerScript = preload("res://scripts/enemy_spawner.gd")
 
@@ -19,9 +19,9 @@ func _reset_spawner(sp) -> void:
 func test_initial_spawn_parameters() -> void:
 	var sp = SpawnerScript.new()
 	_reset_spawner(sp)
-	assert(sp._enemies_per_wave == 5, "初始每波敌人应为 5")
-	assert(sp.spawn_interval == 1.5, "初始生成间隔应为 1.5")
-	assert(sp._wave == 0, "初始波次应为 0")
+	assert(sp._enemies_per_wave == 5, "initial enemies per wave should be 5")
+	assert(sp.spawn_interval == 1.5, "initial spawn interval should be 1.5")
+	assert(sp._wave == 0, "initial wave should be 0")
 	print("✅ test_initial_spawn_parameters 通过")
 
 func test_wave_progression_increases_enemy_count() -> void:
@@ -149,4 +149,4 @@ func run_tests() -> void:
 	test_enemy_type_early_waves()
 	test_enemy_type_mid_waves()
 	test_enemy_type_late_waves()
-	print("\n🎉 EnemySpawner 测试全部通过 (%d 项)" % 8)
+	print("\n🎉 EnemySpawner tests passed (%d 项)" % 8)

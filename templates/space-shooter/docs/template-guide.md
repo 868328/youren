@@ -1,4 +1,4 @@
-# 🧬 模板化指南 — 基于 Space Shooter 创建新的 Godot 2D Shooter
+# 🧬 Template Guide — 基于 Space Shooter 创建新的 Godot 2D Shooter
 
 > 本文档说明如何基于当前项目创建新的 Godot 2D 射击游戏。
 > 标注哪些是"通用模板代码"，哪些是"游戏特有代码"。

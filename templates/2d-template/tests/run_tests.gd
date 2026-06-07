@@ -1,5 +1,5 @@
 #!/usr/bin/env godot --headless --script
-## 测试运行器
+## Test runner
 ## 遍历 tests/ 下所有 *_test.gd 并运行
 ## 用法: godot --headless --path /path/to/project --script tests/run_tests.gd
 

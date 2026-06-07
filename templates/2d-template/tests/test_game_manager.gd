@@ -1,5 +1,5 @@
 extends "res://scripts/game_manager.gd"
-## GameManager 单元测试
+## GameManager unit tests
 ## 运行方法: godot --headless --script tests/test_game_manager.gd
 
 func test_score_management() -> void:
