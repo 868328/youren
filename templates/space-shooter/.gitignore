@@ -1,0 +1,32 @@
+# Godot engine artifacts
+.godot/
+.import/
+
+# Exported builds
+export/
+
+# Translation files
+*.translation
+
+# UID files (auto-generated, regenerated on import)
+*.uid
+
+# Logs and editor data
+*.log
+godot.editor.def
+
+# OS-specific metadata
+Thumbs.db
+.DS_Store
+
+# Python/IDE junk
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temp test files
+_test_results.txt
+_test_stdout.txt

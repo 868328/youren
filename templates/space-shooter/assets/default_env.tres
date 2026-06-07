@@ -1,0 +1,4 @@
+[gd_resource type="Environment" format=3 uid="uid://cw5bjv37inpr3"]
+
+[resource]
+background_color = Color(0.05, 0.05, 0.08, 1)

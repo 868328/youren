@@ -1,0 +1,33 @@
+# Godot
+.godot/
+.import/
+export/
+*.translation
+*.uid
+*.log
+godot.editor.def
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Personal config (DO NOT commit)
+agent/tools.json
+*_token*
+*.secret
