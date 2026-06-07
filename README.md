@@ -55,6 +55,12 @@
 
 **核心价值：** LLM 写游戏代码 → 通过桥接存盘 → Godot 编译/测试 → 人工验收。全部在本地完成，零第三方 API 依赖，数据不出本机。
 
+<p align="center">
+  <img src="docs/_media/demo.gif" alt="游刃 Demo — Space Shooter" width="320" />
+  <br/>
+  <em>Space shooter template in action — AI-generated, AI-tested, AI-built</em>
+</p>
+
 ## 功能
 
 - ✅ **GDScript 代码生成** — LLM 直接写游戏逻辑
