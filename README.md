@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/logo.png" alt="游刃" width="128" />
+
 </p>
 
 <h1 align="center">游刃 · Youren</h1>
@@ -78,7 +78,7 @@
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/your-org/youren.git
+git clone https://github.com/868328/youren.git
 cd youren
 
 # 2. 配置工具路径
@@ -130,9 +130,7 @@ youren/
 │   └── 2d-template/          # 通用 2D 游戏模板
 ├── docs/                     # 文档
 │   ├── architecture.md       # 架构详解
-│   ├── quickstart.md         # 快速开始
-│   ├── bridge-protocol.md    # 桥接协议规范
-│   └── template-guide.md     # 模板使用指南
+│   └── bridge-protocol.md    # 桥接协议规范
 ├── build/                    # 构建工具
 │   └── setup.sh              # 一键部署
 ├── LICENSE                   # MIT
@@ -163,7 +161,7 @@ cd my-new-game
 # 编辑 project.godot，开始开发！
 ```
 
-详见 [模板指南](docs/template-guide.md)。
+详见模板内附的 `docs/template-guide.md`。
 
 ## 常见问题
 
