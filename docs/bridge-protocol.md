@@ -216,7 +216,7 @@ cd agent
 python agent.py
 # 输出:
 # 🦐 小虾躯壳脚本 v2.1 — HTTP+文件双桥接
-# 🌐 HTTP 桥接已启动: http://127.0.0.1:9876
+# 🌐 HTTP 桥接已启动: http://0.0.0.0:9876
 ```
 
 HTTP-only 模式（不启动文件轮询）:
