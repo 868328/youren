@@ -11,7 +11,17 @@
 
 ### 原理
 
-Windows 端的 agent.py 在后台启动 HTTP 服务器（`127.0.0.1:9876`），WSL 端通过 `http://localhost:9876` 发送 JSON 指令。
+Windows 端的 agent.py 在后台启动 HTTP 服务器（默认 `0.0.0.0:9876`），WSL 端通过 `http://<Windows-Host-IP>:9876/` 发送 JSON 指令。
+
+> **WSL2 注意事项：** WSL2 有独立的虚拟网络，`127.0.0.1` 在 WSL2 中指 WSL 自己，不是 Windows。
+> 必须使用 Windows 主机在 WSL2 网络中的 IP 地址（通常为默认网关 `172.x.x.1`）才能访问。
+> WSL 侧客户端 (`windows_bridge.py`) 会自动通过 `ip route` 检测此 IP。
+
+> **Windows Firewall：** HTTP 服务器绑定到 `0.0.0.0`，需确保 Windows Defender 防火墙放行端口 9876。
+> 建议限制到 WSL2 子网：
+> ```powershell
+> netsh advfirewall firewall add rule name="游刃 HTTP Bridge (WSL2)" dir=in action=allow protocol=TCP localport=9876 remoteip=172.27.80.0/20
+> ```
 
 ```
 WSL (Linux)                        Windows
@@ -70,11 +80,12 @@ WSL (Linux)                        Windows
 
 | 参数 | 默认值 | 说明 |
 |------|--------|------|
-| 监听地址 | `127.0.0.1` | 仅本地访问 |
+| 监听地址 | `0.0.0.0` | 所有网络接口（WSL2 需要） |
 | 端口 | `9876` | HTTP 端口 |
 | 超时 | 30 秒 | 请求超时 |
 
 > 端口 9876 可通过 `agent.py --port 9877` 修改。
+> 监听地址可通过 `agent.py --host 127.0.0.1` 限制到本机（WSL2 无法访问）。
 
 ---
 

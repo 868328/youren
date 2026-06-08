@@ -15,6 +15,10 @@ API:
               JSON response: {"ok": true/false, ...}
 
     GET  /health — 健康检查
+
+安全注意：
+    HTTP 服务器监听 0.0.0.0（所有网络接口），因为 WSL2 通过虚拟网络而非 localhost 访问。
+    建议在 Windows 防火墙上限制端口 9876 仅允许 WSL2 子网访问。
 """
 
 import json
