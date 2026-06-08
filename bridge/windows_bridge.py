@@ -27,7 +27,25 @@ logger = logging.getLogger("bridge")
 
 # ── 配置 ──────────────────────────────────────────────────────────────
 
-DEFAULT_HOST = "127.0.0.1"
+# 在 WSL2 中，Windows 主机通过虚拟网络网关可达。
+# 自动检测：WSL2 默认网关即 Windows 主机 IP。
+def _detect_windows_host() -> str:
+    """检测 WSL2 中 Windows 主机的 IP 地址"""
+    import subprocess
+    try:
+        result = subprocess.run(
+            ["/sbin/ip", "route"],
+            capture_output=True, text=True, timeout=3
+        )
+        for line in result.stdout.splitlines():
+            if line.startswith("default via"):
+                ip = line.split()[2]
+                return ip
+    except Exception:
+        pass
+    return "127.0.0.1"  # fallback
+
+DEFAULT_HOST = _detect_windows_host()
 DEFAULT_PORT = 9876
 HTTP_TIMEOUT = 30  # 默认超时秒数
 

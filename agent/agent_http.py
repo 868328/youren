@@ -102,7 +102,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
 class BridgeHttpServer:
     """HTTP 桥接服务器封装"""
 
-    def __init__(self, host="127.0.0.1", port=DEFAULT_PORT):
+    def __init__(self, host="0.0.0.0", port=DEFAULT_PORT):
         self.host = host
         self.port = port
         self._server = None
