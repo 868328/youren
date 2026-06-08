@@ -18,6 +18,7 @@ import shutil
 import subprocess
 import sys
 import time
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -319,15 +320,51 @@ def update_status(running: bool = True):
     )
 
 
+# ── HTTP 桥接服务器 ──────────────────────────────────────────
+
+_http_server = None
+
+def start_http_server():
+    """在后台线程启动 HTTP 桥接服务器（替代文件轮询，避免 9P 死锁）"""
+    try:
+        from agent_http import BridgeHttpServer, set_command_handler
+        set_command_handler(handle_command)
+        global _http_server
+        _http_server = BridgeHttpServer()
+        _http_server.start()
+        log(f"🌐 HTTP 桥接已启动: {_http_server.url}")
+        log("📌 建议: 在 WSL 端使用 HTTP 桥接发送指令，完全绕过 9P 文件共享死锁")
+        return True
+    except Exception as e:
+        log(f"⚠️ HTTP 桥接启动失败: {e}（不影响文件桥接）")
+        return False
+
+
 # ── 主循环 ──────────────────────────────────────────────────────────
 
-def main_loop():
-    log("🦐 小虾躯壳脚本 v2.0 启动")
+def main_loop(http_only: bool = False):
+    log("🦐 小虾躯壳脚本 v2.1 — HTTP+文件双桥接")
     log(f"📁 共享目录: {SHARED_DIR}")
-    log(f"📥 inbox: {INBOX}")
-    log(f"📤 outbox: {OUTBOX}")
+    log(f"📥 inbox: {INBOX}（文件桥接）")
+    log(f"📤 outbox: {OUTBOX}（文件桥接）")
     log(f"🔧 Godot: {TOOLS.get('godot', '未配置')}")
-    log("等待指令中...")
+
+    # 启动 HTTP 桥接
+    start_http_server()
+
+    if http_only:
+        log("📌 HTTP-only 模式，文件轮询已关闭")
+        update_status(True)
+        log("等待 HTTP 请求中...")
+        try:
+            threading.Event().wait()  # 无限等待
+        except KeyboardInterrupt:
+            pass
+        finally:
+            update_status(False)
+        return
+
+    log("等待指令中...（文件桥接）")
 
     update_status(True)
     processed: set[str] = set()
@@ -381,4 +418,5 @@ def main_loop():
 
 
 if __name__ == "__main__":
-    main_loop()
+    http_only = "--http-only" in sys.argv
+    main_loop(http_only=http_only)
