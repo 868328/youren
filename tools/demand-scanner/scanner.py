@@ -31,6 +31,7 @@ from sources.v2ex import search_v2ex
 from sources.zhihu import search_zhihu
 from sources.bilibili import search_bilibili
 from sources.juejin import search_juejin
+from sources.hackernews import search_hackernews
 
 
 def scan_all(keywords: list[str], sources: list[str],
@@ -73,6 +74,8 @@ def _run_source(src_name: str, keyword: str, limit: int) -> list:
             return search_bilibili(keyword, limit)
         elif src_name == "juejin":
             return search_juejin(keyword, limit)
+        elif src_name == "hackernews":
+            return search_hackernews(keyword, limit)
         else:
             print(f"(未知数据源: {src_name})", end="")
             return []
@@ -85,7 +88,7 @@ def main():
     parser = argparse.ArgumentParser(description="需求探寻扫描器")
     parser.add_argument("--keywords", default=",".join(DEFAULT_KEYWORDS),
                         help="关键词（逗号分隔）")
-    parser.add_argument("--sources", default="github,juejin",
+    parser.add_argument("--sources", default="github,juejin,hackernews",
                         help="数据源（逗号分隔）")
     parser.add_argument("--report", action="store_true",
                         help="基于已有数据生成摘要报告")
