@@ -31,3 +31,13 @@ desktop.ini
 agent/tools.json
 *_token*
 *.secret
+
+# 扫描数据（频繁变更，体积大）
+tools/*/data/
+tools/*/output/
+tools/*/__pycache__/
+*.bak
+
+# 记忆文件（含敏感信息，不公开）
+memory/
+*.secret
