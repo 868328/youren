@@ -1,0 +1,35 @@
+{
+  "title": "Claude Code 设计洞察",
+  "recommendation": "优先实现: Edit 精确替换 → Monitor 后台监控 → LSP 代码智能 → 会话级 cron",
+  "categories": [
+    {
+      "name": "权限模型",
+      "items": [
+        "路径级权限规则: Read(~/secrets/**), Edit(/src/**), Bash(npm run *)",
+        "read-before-write 约束: 编辑文件前必须先读",
+        "默认只读 + 写操作显式确认",
+        "deny 数组禁用特定工具"
+      ]
+    },
+    {
+      "name": "工具设计改进点",
+      "items": [
+        "Edit: old_string → new_string 精确替换（比行号替换更鲁棒）",
+        "Read: offset/limit 分页读取，大文件不撑爆上下文",
+        "WebFetch: 带 extraction prompt（小模型提取），不返回原始HTML",
+        "Glob: 100个上限，mtime排序",
+        "Grep: 基于 ripgrep"
+      ]
+    },
+    {
+      "name": "可直接抄的新工具",
+      "items": [
+        "Monitor: 后台跑命令持续反馈（tail -f / 日志监控）",
+        "LSP: 代码智能（跳转定义/查找引用）",
+        "Workflow: 编排多个子agent的脚本化工作流",
+        "会话级 CronCreate/CronDelete/CronList",
+        "PushNotification: 桌面推送"
+      ]
+    }
+  ]
+}
