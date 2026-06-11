@@ -1,0 +1,398 @@
+[
+  {
+    "name": "Agent",
+    "description": "Spawns a subagent with its own context window to handle a task. See Agent tool behavior",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "AskUserQuestion",
+    "description": "Asks multiple-choice questions to gather requirements or clarify ambiguity",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "Bash",
+    "description": "Executes shell commands in your environment. See Bash tool behavior",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "exec"
+  },
+  {
+    "name": "CronCreate",
+    "description": "Schedules a recurring or one-shot prompt within the current session. Tasks are session-scoped and restored on --resume or --continue if unexpired. See scheduled tasks",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "CronDelete",
+    "description": "Cancels a scheduled task by ID",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "CronList",
+    "description": "Lists all scheduled tasks in the session",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "read"
+  },
+  {
+    "name": "Edit",
+    "description": "Makes targeted edits to specific files. See Edit tool behavior",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "EnterPlanMode",
+    "description": "Switches to plan mode to design an approach before coding",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "EnterWorktree",
+    "description": "Creates an isolated git worktree and switches into it. Pass a path to switch into an existing worktree of the current repository instead of creating a new one. From within a worktree session, or from ",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "Glob",
+    "description": "Finds files based on pattern matching. See Glob tool behavior",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "read"
+  },
+  {
+    "name": "Grep",
+    "description": "Searches for patterns in file contents. See Grep tool behavior",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "read"
+  },
+  {
+    "name": "LSP",
+    "description": "Code intelligence via language servers: jump to definitions, find references, report type errors and warnings. See LSP tool behavior",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "Monitor",
+    "description": "Runs a command in the background and feeds each output line back to Claude, so it can react to log entries, file changes, or polled status mid-conversation. See Monitor tool",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "NotebookEdit",
+    "description": "Modifies Jupyter notebook cells. See NotebookEdit tool behavior",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "PowerShell",
+    "description": "Executes PowerShell commands natively. See PowerShell tool for availability",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "exec"
+  },
+  {
+    "name": "PushNotification",
+    "description": "Sends a desktop notification, and a phone push when Remote Control is connected, so a long-running task or scheduled task can reach you when you step away. Push delivery runs through Anthropic-hosted ",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "Read",
+    "description": "Reads the contents of files. See Read tool behavior",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "read"
+  },
+  {
+    "name": "RemoteTrigger",
+    "description": "Creates, updates, runs, and lists Routines on claude.ai. Backs the /schedule command. Routines live on claude.ai and require a Pro, Max, Team, or Enterprise plan, so this tool is not accessible from A",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "SendMessage",
+    "description": "Sends a message to an agent team teammate, or resumes a subagent by its agent ID. Stopped subagents auto-resume in the background. Only available when CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 is set",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "Skill",
+    "description": "Executes a skill within the main conversation",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "TaskCreate",
+    "description": "Creates a new task in the task list",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "TaskGet",
+    "description": "Retrieves full details for a specific task",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "read"
+  },
+  {
+    "name": "TaskList",
+    "description": "Lists all tasks with their current status",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "read"
+  },
+  {
+    "name": "TaskStop",
+    "description": "Kills a running background task by ID",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "TaskUpdate",
+    "description": "Updates task status, dependencies, details, or deletes tasks",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "TeamCreate",
+    "description": "Creates an agent team with multiple teammates. Only available when CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 is set",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "TeamDelete",
+    "description": "Disbands an agent team and cleans up teammate processes. Only available when CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 is set",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "ToolSearch",
+    "description": "Searches for and loads deferred tools when tool search is enabled",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "read"
+  },
+  {
+    "name": "WebFetch",
+    "description": "Fetches content from a specified URL. See WebFetch tool behavior",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "WebSearch",
+    "description": "Performs web searches. See WebSearch tool behavior",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "read"
+  },
+  {
+    "name": "Workflow",
+    "description": "Runs a dynamic workflow: a script that orchestrates many subagents in the background and returns one consolidated result",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "general"
+  },
+  {
+    "name": "Write",
+    "description": "Creates or overwrites files. See Write tool behavior",
+    "permission": "write",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "write"
+  },
+  {
+    "name": "WebSearch",
+    "description": "WebSearch",
+    "permission": "read",
+    "source": "claude-code",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "category": "read"
+  }
+]

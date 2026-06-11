@@ -307,7 +307,12 @@ CLAUDE_CODE_TOOLS = [
 
 
 def scan_claude_code_tools() -> list[dict]:
-    """返回 Claude Code 的已知工具定义"""
+    """从已保存的解析数据加载 Claude Code 工具定义"""
+    json_path = os.path.join(SOURCES_DIR, "claude_code_tools.json")
+    if os.path.exists(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    logger.warning("Claude Code 工具数据文件不存在，使用内置定义")
     return CLAUDE_CODE_TOOLS
 
 
