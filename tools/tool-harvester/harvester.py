@@ -188,6 +188,234 @@ def _parse_openclaw_tool(fname: str, content: str) -> dict:
 
 
 # ══════════════════════════════════════════════════════════════════════════
+# 数据源: Claude Code (基于公开文档的已知工具集)
+# ══════════════════════════════════════════════════════════════════════════
+
+CLAUDE_CODE_TOOLS = [
+    {
+        "source": "claude-code",
+        "source_file": "anthropic-docs",
+        "name": "bash",
+        "description": "在沙箱环境中执行 shell 命令。支持脚本执行、文件操作、程序运行。",
+        "permission": "exec",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "command": {"type": "string", "description": "要执行的 shell 命令"},
+                "timeout": {"type": "integer", "description": "超时秒数（默认 30）"},
+            },
+            "required": ["command"],
+        },
+        "implementation_hints": ["参考 Claude Code 的沙箱执行模式，限制文件系统访问范围"],
+    },
+    {
+        "source": "claude-code",
+        "source_file": "anthropic-docs",
+        "name": "edit",
+        "description": "对文件进行精确的基于行的编辑。支持替换、插入、删除操作。",
+        "permission": "write",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "file_path": {"type": "string", "description": "目标文件路径"},
+                "old_string": {"type": "string", "description": "要替换的原始文本"},
+                "new_string": {"type": "string", "description": "替换后的新文本"},
+            },
+            "required": ["file_path", "old_string", "new_string"],
+        },
+        "implementation_hints": ["精确匹配替换，避免 whitespace 问题"],
+    },
+    {
+        "source": "claude-code",
+        "source_file": "anthropic-docs",
+        "name": "read",
+        "description": "读取文件内容，支持指定行范围。",
+        "permission": "read",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "file_path": {"type": "string", "description": "文件路径"},
+                "offset": {"type": "integer", "description": "起始行号"},
+                "limit": {"type": "integer", "description": "最大行数"},
+            },
+            "required": ["file_path"],
+        },
+        "implementation_hints": [],
+    },
+    {
+        "source": "claude-code",
+        "source_file": "anthropic-docs",
+        "name": "glob",
+        "description": "按通配符模式搜索文件名，快速定位项目中的文件。",
+        "permission": "read",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "pattern": {"type": "string", "description": "通配符模式，如 **/*.py"},
+            },
+            "required": ["pattern"],
+        },
+        "implementation_hints": ["用 glob 模块实现，限制搜索深度"],
+    },
+    {
+        "source": "claude-code",
+        "source_file": "anthropic-docs",
+        "name": "grep",
+        "description": "在项目中搜索文件内容，支持正则表达式。",
+        "permission": "read",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "pattern": {"type": "string", "description": "搜索模式（正则）"},
+                "include": {"type": "string", "description": "文件通配符过滤器"},
+            },
+            "required": ["pattern"],
+        },
+        "implementation_hints": ["用 re 或 rg 实现，限制到项目目录"],
+    },
+    {
+        "source": "claude-code",
+        "source_file": "anthropic-docs",
+        "name": "web_fetch",
+        "description": "抓取 URL 内容并返回 Markdown/文本。",
+        "permission": "write",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "url": {"type": "string", "description": "要抓取的 URL"},
+            },
+            "required": ["url"],
+        },
+        "implementation_hints": [],
+    },
+    {
+        "source": "claude-code",
+        "source_file": "anthropic-docs",
+        "name": "think",
+        "description": "使用更多推理 token 进行深度思考。适用于复杂问题分析、策略规划。",
+        "permission": "read",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "thought": {"type": "string", "description": "需要深入分析的内容"},
+            },
+            "required": ["thought"],
+        },
+        "implementation_hints": ["本质上是 LLM 自身的 reasoning 能力，无需额外实现"],
+    },
+]
+
+
+def scan_claude_code_tools() -> list[dict]:
+    """返回 Claude Code 的已知工具定义"""
+    return CLAUDE_CODE_TOOLS
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# 数据源: Cursor (基于公开文档的已知工具集)
+# ══════════════════════════════════════════════════════════════════════════
+
+CURSOR_TOOLS = [
+    {
+        "source": "cursor",
+        "source_file": "cursor-docs",
+        "name": "read_file",
+        "description": "读取文件内容。Cursor 的代码理解工具。",
+        "permission": "read",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "文件路径"},
+            },
+            "required": ["path"],
+        },
+        "implementation_hints": ["已实现为 ToolV2"],
+    },
+    {
+        "source": "cursor",
+        "source_file": "cursor-docs",
+        "name": "apply_diff",
+        "description": "应用代码差异到文件。Cursor 的核心编辑工具。",
+        "permission": "write",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "file_path": {"type": "string", "description": "文件路径"},
+                "diff_content": {"type": "string", "description": "unified diff 格式的变更内容"},
+            },
+            "required": ["file_path", "diff_content"],
+        },
+        "implementation_hints": ["解析 unified diff，逐块应用到文件"],
+    },
+    {
+        "source": "cursor",
+        "source_file": "cursor-docs",
+        "name": "search_files",
+        "description": "按关键词或模式搜索项目文件。",
+        "permission": "read",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "query": {"type": "string", "description": "搜索关键词"},
+            },
+            "required": ["query"],
+        },
+        "implementation_hints": ["类似 Claude Code 的 Glob + Grep 组合"],
+    },
+    {
+        "source": "cursor",
+        "source_file": "cursor-docs",
+        "name": "run_command",
+        "description": "在终端执行命令，实时显示输出。",
+        "permission": "exec",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "command": {"type": "string", "description": "要执行的命令"},
+            },
+            "required": ["command"],
+        },
+        "implementation_hints": ["已实现为 ToolV2 shell"],
+    },
+    {
+        "source": "cursor",
+        "source_file": "cursor-docs",
+        "name": "list_directory",
+        "description": "列出目录内容，快速了解项目结构。",
+        "permission": "read",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "目录路径"},
+            },
+            "required": [],
+        },
+        "implementation_hints": ["已实现为 ToolV2 list_dir"],
+    },
+    {
+        "source": "cursor",
+        "source_file": "cursor-docs",
+        "name": "web_search",
+        "description": "搜索网络获取最新信息。",
+        "permission": "write",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "query": {"type": "string", "description": "搜索关键词"},
+            },
+            "required": ["query"],
+        },
+        "implementation_hints": ["已实现为 ToolV2 web_search"],
+    },
+]
+
+
+def scan_cursor_tools() -> list[dict]:
+    """返回 Cursor 的已知工具定义"""
+    return CURSOR_TOOLS
+
+
+# ══════════════════════════════════════════════════════════════════════════
 # 转换器: 提取的工具 → ToolV2 Python 代码
 # ══════════════════════════════════════════════════════════════════════════
 
@@ -327,7 +555,7 @@ def save_tools(tools: list[dict], prefix: str = ""):
 
 def main():
     parser = argparse.ArgumentParser(description="🦐 工具收割机")
-    parser.add_argument("--source", default="all", help="数据源: cline, openclaw, all")
+    parser.add_argument("--source", default="all", help="数据源: cline, openclaw, claude-code, cursor, all")
     parser.add_argument("--output", default="", help="输出目录")
     args = parser.parse_args()
 
@@ -363,6 +591,28 @@ def main():
             results.append(r)
             all_tools.extend(oc_tools)
             print(f"     ✅ {len(oc_tools)} 个工具")
+        else:
+            print("     ⚠️ 不可用（跳过）")
+
+    if args.source in ("all", "claude-code"):
+        print("  📡 Claude Code...")
+        cc_tools = scan_claude_code_tools()
+        if cc_tools:
+            r = save_tools(cc_tools, "claude-code")
+            results.append(r)
+            all_tools.extend(cc_tools)
+            print(f"     ✅ {len(cc_tools)} 个工具")
+        else:
+            print("     ⚠️ 不可用（跳过）")
+
+    if args.source in ("all", "cursor"):
+        print("  📡 Cursor...")
+        cu_tools = scan_cursor_tools()
+        if cu_tools:
+            r = save_tools(cu_tools, "cursor")
+            results.append(r)
+            all_tools.extend(cu_tools)
+            print(f"     ✅ {len(cu_tools)} 个工具")
         else:
             print("     ⚠️ 不可用（跳过）")
 
