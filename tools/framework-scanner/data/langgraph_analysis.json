@@ -1,0 +1,53 @@
+{
+  "framework_id": "langchain",
+  "framework_name": "LangChain / LangGraph",
+  "scanned_at": "2026-06-10T11:51:30+08:00",
+  "sources": ["docs.langchain.com"],
+  "analysis": {
+    "tool_routing": [
+      "Low-level orchestration framework: StateGraph with nodes, edges, START/END",
+      "Tool integration via LangChain components: models, tools, agent loops on top of LangGraph",
+      "Deep Agents SDK: planning, subagents, filesystem tools, and context management on top of LangGraph",
+      "State-based: graph state passed between nodes, typed via TypedDict with reducers"
+    ],
+    "memory_system": [
+      "Two-tier memory: short-term (thread-scoped) and long-term (cross-session)",
+      "Short-term: state persisted via checkpointer at each super-step boundary",
+      "Long-term: stores with custom namespaces, shared across threads",
+      "Three memory types: semantic (facts), episodic (experiences), procedural (instructions)",
+      "Profile vs Collection patterns: single JSON profile or document collection for memories"
+    ],
+    "session_mgmt": [
+      "Thread-based session model: thread_id as primary key for checkpoint storage",
+      "Human-in-the-loop: inspect, interrupt, approve graph steps at any point",
+      "Time travel: replay prior executions, fork state at arbitrary checkpoints",
+      "Thread organizes multiple interactions in a session (like email threads)"
+    ],
+    "context_mgmt": [
+      "Context window management via message filtering: trim/filter conversation history",
+      "Auto-compaction not built-in — manual message management techniques",
+      "Agent state includes conversation history + files + retrieved documents + artifacts"
+    ],
+    "security_model": [
+      "Durable execution: checkpoint persistence for fault tolerance",
+      "Pending writes: failed nodes don't require recomputing successful node writes",
+      "Human-in-the-loop is core security pattern — manual approval at graph steps"
+    ],
+    "CLI_UX": [
+      "Python library, not terminal CLI — pip install langgraph",
+      "LangSmith CLI for tracing, datasets, experiments",
+      "LangSmith Studio: visual interface for designing and testing agents",
+      "Fleet: no-code agent builder"
+    ],
+    "mcp_protocol": [
+      "No native MCP support mentioned — uses LangChain's own tool integration system"
+    ],
+    "execution_model": [
+      "StateGraph orchestration: nodes execute (potentially in parallel) per super-step",
+      "Invoke/stream/async execution modes",
+      "Agent Server for production deployment with automatic checkpointing",
+      "Subgraph support: nested graphs with own state and checkpoints",
+      "Fault-tolerant: resume from last successful super-step after failure"
+    ]
+  }
+}

@@ -1,0 +1,765 @@
+[
+  {
+    "source": "openclaw",
+    "source_file": "acp-agents-setup.md",
+    "name": "acp_agents_setup",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "acp-agents.md",
+    "name": "acp_agents",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "agent-send.md",
+    "name": "simple_turn_with_json_output",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "apply-patch.md",
+    "name": "apply_patch",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "brave-search.md",
+    "name": "brave_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "browser-control.md",
+    "name": "browser_control",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "browser-linux-troubleshooting.md",
+    "name": "~/.config/systemd/user/openclaw_browser.service",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "browser-login.md",
+    "name": "browser_login",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "browser-wsl2-windows-remote-cdp-troubleshooting.md",
+    "name": "browser_wsl2_windows_remote_cdp_troubleshooting",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "browser.md",
+    "name": "browser",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "btw.md",
+    "name": "btw",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "capability-cookbook.md",
+    "name": "capability_cookbook",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "clawhub.md",
+    "name": "clawhub",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "code-execution.md",
+    "name": "code_execution",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "creating-skills.md",
+    "name": "creating_skills",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "diffs.md",
+    "name": "diffs",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "duckduckgo-search.md",
+    "name": "duckduckgo_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "elevated.md",
+    "name": "elevated",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "exa-search.md",
+    "name": "exa_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "exec-approvals-advanced.md",
+    "name": "exec_approvals_advanced",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "exec-approvals.md",
+    "name": "exec_approvals",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "full": {
+          "type": "string"
+        },
+        "ask": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "full"
+      ]
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "exec.md",
+    "name": "exec",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "firecrawl.md",
+    "name": "firecrawl",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "gemini-search.md",
+    "name": "gemini_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "grok-search.md",
+    "name": "grok_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "image-generation.md",
+    "name": "image_generation",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "imageGenerationModel.primary": {
+          "type": "string"
+        },
+        "imageGenerationModel.fallbacks": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "imageGenerationModel.primary"
+      ]
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "index.md",
+    "name": "index",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "kimi-search.md",
+    "name": "kimi_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "llm-task.md",
+    "name": "llm_task",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "lobster.md",
+    "name": "lobster",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "lobster timed out": {
+          "type": "string"
+        },
+        "lobster output exceeded maxStdoutBytes": {
+          "type": "string"
+        },
+        "lobster returned invalid JSON": {
+          "type": "string"
+        },
+        "lobster failed": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lobster timed out"
+      ]
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "loop-detection.md",
+    "name": "loop_detection",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "media-overview.md",
+    "name": "media_overview",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "minimax-search.md",
+    "name": "minimax_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "multi-agent-sandbox-tools.md",
+    "name": "multi_agent_sandbox_tools",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "music-generation.md",
+    "name": "music_generation",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "ollama-search.md",
+    "name": "ollama_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "pdf.md",
+    "name": "pdf",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "perplexity-search.md",
+    "name": "perplexity_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "plugin.md",
+    "name": "plugin",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "reactions.md",
+    "name": "reactions",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "searxng-search.md",
+    "name": "searxng_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "skills-config.md",
+    "name": "skills_config",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "skills.md",
+    "name": "skills",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "slash-commands.md",
+    "name": "slash_commands",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "/stop": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "/stop"
+      ]
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "steer.md",
+    "name": "steer",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "subagents.md",
+    "name": "subagents",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "tavily.md",
+    "name": "tavily",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "thinking.md",
+    "name": "thinking",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "tokenjuice.md",
+    "name": "tokenjuice",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "tool-search.md",
+    "name": "tool_search",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "trajectory.md",
+    "name": "trajectory",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "tts.md",
+    "name": "tts",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "video-generation.md",
+    "name": "video_generation",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "videoGenerationModel.primary": {
+          "type": "string"
+        },
+        "videoGenerationModel.fallbacks": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "videoGenerationModel.primary"
+      ]
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "web-fetch.md",
+    "name": "web_fetch",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  },
+  {
+    "source": "openclaw",
+    "source_file": "web.md",
+    "name": "web",
+    "description": "",
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "permission": "write",
+    "implementation_hints": []
+  }
+]

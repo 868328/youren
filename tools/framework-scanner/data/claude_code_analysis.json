@@ -1,0 +1,60 @@
+{
+  "framework_id": "claude-code",
+  "framework_name": "Claude Code (Anthropic)",
+  "scanned_at": "2026-06-10T11:51:00+08:00",
+  "sources": ["docs.anthropic.com", "code.claude.com"],
+  "analysis": {
+    "tool_routing": [
+      "Permission-based architecture: strict read-only by default, explicit approval for modifications",
+      "Bash tool sandboxing: filesystem+network isolation, configurable with /sandbox command",
+      "Write access restricted to project folder and subfolders — cannot modify parent dirs without permission",
+      "Tool routing via MCP (Model Context Protocol): open standard for connecting AI tools to external data sources",
+      "SDK-based custom tools: Agent SDK lets you build agents with Claude Code's tools and capabilities"
+    ],
+    "memory_system": [
+      "CLAUDE.md: project-level Markdown file read at every session start (coding standards, architecture decisions)",
+      "Auto memory: Claude automatically saves learnings like build commands and debugging insights across sessions",
+      "Session context is conversation-based: subagents have separate context windows",
+      "Persistent memory directory for subagents: ~/.claude/agent-memory/ for cross-conversation learnings"
+    ],
+    "session_mgmt": [
+      "Multiple surfaces sharing same engine: Terminal, VS Code, Desktop, Web, JetBrains — same CLAUDE.md, settings, MCP",
+      "Session persistence: /resume to continue previous conversations",
+      "Remote Control: continue local sessions from mobile or browser",
+      "Background agents: run multiple independent sessions in parallel"
+    ],
+    "context_mgmt": [
+      "Subagent architecture: each subagent runs in independent context window with custom system prompt",
+      "Built-in subagents: Explore (read-only, Haiku), Plan (read-only), General-purpose (full access)",
+      "Context isolation by design: subagents keep exploration results out of main conversation",
+      "Custom subagents with YAML frontmatter Markdown files: system prompt, tool restrictions, model selection"
+    ],
+    "security_model": [
+      "SOC 2 Type 2, ISO 27001 certified",
+      "Sandboxed bash tool: filesystem and network isolation",
+      "Network command approval: curl/wget not auto-approved by default",
+      "Prompt fatigue mitigation: allowlisting common safe commands",
+      "Isolated VM for cloud execution, credential proxy, audit logging",
+      "Fail-closed matching: unmatched commands require manual approval"
+    ],
+    "CLI_UX": [
+      "Unix philosophy: composable, pipe-able, scriptable",
+      "Modes: interactive TUI, one-shot, JSON streaming, Yolo (auto-approve), Zen (background)",
+      "pipe input: cat file | claude -p 'summarize'",
+      "Rich CLI: plan/act toggle, MCP support, checkpoints with /undo, sub-agent spawning"
+    ],
+    "mcp_protocol": [
+      "MCP (Model Context Protocol) is a core extension point for Claude Code",
+      "Connect to Google Drive, Jira, Slack, databases, APIs via MCP servers",
+      "MCP servers configured in project source code as part of Claude Code settings",
+      "Accept Edits mode: auto-approves file edits and filesystem bash commands"
+    ],
+    "execution_model": [
+      "Agent teams: coordinator delegates to specialist agents with separate tools and context",
+      "Scheduled tasks: cron-like recurring automations (PR summaries, dependency checks)",
+      "Agent SDK for fully custom orchestration with control over tool access and permissions",
+      "Background agents: run full sessions in parallel from task board",
+      "Kanban: web-based multi-agent task board with worktrees, auto-commit, dependency chains"
+    ]
+  }
+}

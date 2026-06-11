@@ -27,6 +27,7 @@ import os
 import sys
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from socketserver import ThreadingMixIn
 from datetime import datetime
 
 logger = logging.getLogger("agent.http")
@@ -42,6 +43,14 @@ def set_command_handler(handler):
     """注入命令处理器函数"""
     global _command_handler
     _command_handler = handler
+
+
+# ── 多线程 HTTP 服务器 ─────────────────────────────────────────
+
+class ThreadedBridgeServer(ThreadingMixIn, HTTPServer):
+    """多线程 HTTP 服务器，长时间 exec 不阻塞其他请求"""
+    allow_reuse_address = True
+    daemon_threads = True
 
 
 # ── HTTP 请求处理器 ──────────────────────────────────────────────
@@ -117,15 +126,15 @@ class BridgeHttpServer:
         return f"http://{self.host}:{self.port}"
 
     def start(self):
-        """在后台线程启动 HTTP 服务器"""
-        self._server = HTTPServer((self.host, self.port), BridgeHandler)
+        """在后台线程启动多线程 HTTP 服务器"""
+        self._server = ThreadedBridgeServer((self.host, self.port), BridgeHandler)
         self._thread = threading.Thread(
             target=self._server.serve_forever,
             daemon=True,
             name="http-bridge",
         )
         self._thread.start()
-        logger.info(f"🌐 HTTP 桥接已启动: {self.url}")
+        logger.info(f"🌐 HTTP 桥接已启动（多线程）: {self.url}")
         return True
 
     def stop(self):

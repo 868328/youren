@@ -1,0 +1,63 @@
+{
+  "framework_id": "cline",
+  "framework_name": "Cline (Cline Bot Inc.)",
+  "scanned_at": "2026-06-10T11:51:45+08:00",
+  "sources": ["github.com/cline/cline"],
+  "analysis": {
+    "tool_routing": [
+      "SDK-first: @cline/sdk for building custom agents with programmatic tool definitions",
+      "createTool API: name, description, inputSchema (JSON Schema), execute handler",
+      "Plugin system: register custom tools and lifecycle hooks",
+      "MCP servers supported as alternative to native tools",
+      "Multi-provider: Anthropic, OpenAI, Google, OpenRouter (200+ models), Bedrock, Ollama/local"
+    ],
+    "memory_system": [
+      "Checkpoints with /undo for workspace state rewinding",
+      ".clinerules files: project-specific rules guiding agent behavior (coding standards, architecture)",
+      "Subagent memory: team state persists across sessions",
+      "Skills system: let model load specific rules when needed"
+    ],
+    "session_mgmt": [
+      "Sessions span CLI, VS Code, JetBrains, Kanban — shared agent core",
+      "Chat connectors: Telegram, Slack, Google Chat, WhatsApp, Linear via cline connect",
+      "Each conversation thread maps to an agent session with full context",
+      "Kanban: web-based multi-agent task board, each card gets own worktree and auto-commit"
+    ],
+    "context_mgmt": [
+      "Plan mode vs Act mode: separates exploration from execution",
+      "Plan mode: explores codebase, asks questions, lays out strategy",
+      "Act mode: executes with approval (or auto-approve for autonomous)",
+      "Compaction modes: agentic (LLM), basic, off",
+      "Sub-agent spawning for parallel work with separate contexts"
+    ],
+    "security_model": [
+      "Human-in-the-loop: every file edit and terminal command requires approval by default",
+      "Yolo mode: skip approval prompts (opt-in)",
+      "Auto-approve toggle: per-tool or all-tools",
+      "Permission rules: allow/deny for specific tools",
+      "Telemetry: optional"
+    ],
+    "CLI_UX": [
+      "npm install -g cline for CLI, or platform binaries (macOS/Linux/Windows)",
+      "Multiple modes: interactive TUI, one-shot, JSON (NDJSON), Yolo, Zen (background hub daemon)",
+      "Rich TUI: plan/act toggle, slash commands, file mentions, live tool approvals",
+      "cline schedule: cron-like recurring agent automations",
+      "cline connect: chat connector setup for Team collaboration",
+      "cline auth: OAuth or API key auth"
+    ],
+    "mcp_protocol": [
+      "Native MCP support for connecting custom tools",
+      "cline mcp command for managing MCP servers",
+      "Supports community-built MCP servers and custom ones",
+      "MCP servers connect to databases, query APIs, cloud infrastructure"
+    ],
+    "execution_model": [
+      "Multi-agent teams: coordinator delegates to specialist agents",
+      "Kanban board: parallel agents with worktrees, auto-commit, dependency chains",
+      "Cron schedules: cline schedule create with --cron, --workspace, --provider flags",
+      "Events: external event-driven schedules",
+      "Plugin hooks: lifecycle hooks for logging, auditing, policy enforcement",
+      "SDK-based programmatic agent API with full control"
+    ]
+  }
+}

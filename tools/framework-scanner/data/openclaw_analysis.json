@@ -1,0 +1,62 @@
+{
+  "framework_id": "openclaw",
+  "framework_name": "OpenClaw Gateway",
+  "scanned_at": "2026-06-10T11:50:00+08:00",
+  "sources": ["local docs"],
+  "analysis": {
+    "tool_routing": [
+      "Gateway architecture: single long-lived Gateway owns all messaging surfaces, exposes typed WS API with requests/responses/events",
+      "Tools defined in ~/.../docs/tools/ — each tool has its own doc with schema. Tools invoke via HTTP API at /openresponses/... or gateway WS API",
+      "Config-tools system: tools can be enabled/disabled per agent via agents.defaults.tools/agents.list[].tools allow/deny lists",
+      "Exec tool has approval gates (exec-approvals.md): permission levels, approval UI, and elevated mode for sensitive commands"
+    ],
+    "memory_system": [
+      "Three memory-related files: MEMORY.md (long-term curated), memory/YYYY-MM-DD.md (daily notes), DREAMS.md (optional dream diary)",
+      "Files are plain Markdown — no hidden state. Memory_search uses hybrid search (vector + keyword)",
+      "Pluggable memory backends: builtin (SQLite), QMD (local-first), Honcho (AI-native cross-session), LanceDB",
+      "Dreaming system: optional background consolidation, scores candidates, promotes qualified to MEMORY.md",
+      "Memory-wiki plugin: compiles durable knowledge into wiki vault with claims, evidence, contradiction tracking"
+    ],
+    "session_mgmt": [
+      "Sessions organized by source: DMs share one session by default, group chats isolated per group, cron jobs get fresh session per run",
+      "DM isolation modes: main, per-peer, per-channel-peer, per-account-channel-peer",
+      "Session lifecycle: daily reset (4AM local), idle reset (configurable), manual reset (/new or /reset)",
+      "Session state owned by gateway, stored at ~/.openclaw/agents/<agentId>/sessions/sessions.json + transcripts as JSONL",
+      "Session maintenance: auto-cleanup with warn/enforce modes, pruneAfter, maxEntries"
+    ],
+    "context_mgmt": [
+      "Context engine: pluggable system controlling message assembly, compaction, subagent lifecycle",
+      "Four lifecycle points: ingest → assemble → compact → after turn",
+      "Legacy engine: pass-through assembly, built-in summarization compaction. Plugin engines can implement custom strategies",
+      "System prompt assembled from: OpenClaw base prompt + skills prompt + bootstrap context + per-run overrides",
+      "Bootstrap files injected: AGENTS.md, SOUL.md, IDENTITY.md, TOOLS.md, USER.md, HEARTBEAT.md, MEMORY.md",
+      "Bootstrap limits: maxChars per file (default 12000), totalMaxChars (default 60000)"
+    ],
+    "security_model": [
+      "THREAT MODEL documented in security/THREAT-MODEL-ATLAS.md with formal verification",
+      "WebSocket auth modes: shared-secret, trusted-proxy, Tailscale, none (private ingress only)",
+      "Sandboxing: sandbox vs tool-policy vs elevated — three tier security model",
+      "Exec approvals: permission levels, approval UI with allow-once per command",
+      "Device pairing: new device IDs require approval, challenge nonce signing"
+    ],
+    "CLI_UX": [
+      "openclaw CLI commands: agents, channels, status, doctor, sessions, cron, gateway, memory, plugins, security",
+      "Status card shows: model, usage, time, cost, tasks. /status in chat shows context usage",
+      "Slash commands: /new, /reset, /stop, /status, /context list, /context detail",
+      "Gateway control: foreground daemon, systemd/launchd supervision"
+    ],
+    "mcp_protocol": [
+      "Mentioned as an extension point but OpenClaw does not use MCP as primary protocol",
+      "Gateway uses its own WebSocket protocol with JSON frames: connect request → typed messages with req/res/event lifecycle",
+      "No direct MCP server/client documentation found in core docs"
+    ],
+    "execution_model": [
+      "Agent loop: intake → context assembly → model inference → tool execution → streaming → persistence",
+      "Serialized per session: runs queued per session key + optional global lane to prevent race conditions",
+      "Streaming: assistant deltas, tool events, lifecycle events all streamed through WS events",
+      "Timeouts: agent runtime default 172800s (48h), agent.wait default 30s, model idle watchdog",
+      "Plugin hooks: before/after tool call, before/after compaction, message lifecycle, session lifecycle",
+      "Subagents: sessions_spawn for isolated child sessions, push-based completion notification"
+    ]
+  }
+}

@@ -201,7 +201,7 @@ HTTP 桥接 → 可用? → 是 → 使用 HTTP
 |------|------|------|
 | `agent/agent.py` | Windows | 躯壳脚本 v2.1，启动 HTTP+文件双桥接 |
 | `agent/agent_http.py` | Windows | HTTP 桥接服务器（零依赖） |
-| `bridge/windows_bridge.py` | WSL | HTTP 客户端 + 文件 fallback |
+| `infra/bridge-client/windows_bridge.py` | WSL | HTTP 客户端 + 文件 fallback |
 | `.agent/tools/send_to_windows.py` | WSL | CLI 工具（HTTP 优先） |
 | `.agent/tools/windows.py` | WSL | 工具类（HTTP 优先） |
 
@@ -228,10 +228,10 @@ python agent.py --http-only
 
 ```bash
 # 测试连接
-python3 ~/projects/youren/bridge/windows_bridge.py ping
+python3 ~/projects/youren/infra/bridge-client/windows_bridge.py ping
 
 # 执行命令
-python3 ~/projects/youren/bridge/windows_bridge.py exec "dir C:\\"
+python3 ~/projects/youren/infra/bridge-client/windows_bridge.py exec "dir C:\\"
 
 # 检查桥接状态
 python3 ~/.agent/tools/send_to_windows.py force_check
